@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.material.Text
 import androidx.compose.material3.Card
+import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.mutableStateOf
@@ -33,18 +34,18 @@ fun HomeScreen(navController: NavController,  viewModel: WeatherViewModel = hilt
     val today = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Date())
 
     LaunchedEffect(Unit) {
+
         viewModel.fetchTodaysWeather("no","Nairobi", "890ceead01424b0398894102240212")
-        viewModel.fetchWeather("2024-11-26","Nairobi", "890ceead01424b0398894102240212")
+       // viewModel.fetchWeather("2024-11-26","Nairobi", "890ceead01424b0398894102240212")
 
     }
-    showDatePicker(navController)
+
     Column(modifier = Modifier.fillMaxSize()) {
 
-       // CalendarView(onDateSelected = { date -> viewModel.fetchWeather("2024-11-26","Nairobi", "890ceead01424b0398894102240212") })
-        showDatePicker(navController)
         if (weatherEntity != null) {
             WeatherCard(hourData = weatherEntity)
         }
+        showDatePicker(navController)
     }
 }
 
@@ -52,7 +53,7 @@ fun HomeScreen(navController: NavController,  viewModel: WeatherViewModel = hilt
 
 @Composable
 fun WeatherCard(hourData: WeatherEntity) {
-    Card(modifier = Modifier.fillMaxWidth().padding(8.dp)) {
+    Card(modifier = Modifier.fillMaxWidth().padding(2.dp)) {
         Column(modifier = Modifier.padding(16.dp)) {
             Text("Today's Weather")
             Text("Temperature: ${hourData.temperature_c}°C / ${hourData.temperature_f}°F")
@@ -69,6 +70,8 @@ fun showDatePicker(navController: NavController) {
         modifier = Modifier.wrapContentWidth(),
         update = { views ->
             views.setOnDateChangeListener { calendarView, year, month, dayOfMonth ->
+
+
                 navController.navigate("details/$year-$month-$dayOfMonth")
             }
         }

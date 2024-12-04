@@ -32,30 +32,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-//            WeatherAppTheme {
-//                Scaffold(
-//                    topBar = {
-//                        TopAppBar(
-//                            contentColor = MaterialTheme.colorScheme.primaryContainer,
-//                            backgroundColor = MaterialTheme.colorScheme.primary,
-//
-//                            title = {
-//                                Text("Top app bar")
-//                            }
-//                        )
-//                    },
-//                    modifier = Modifier.fillMaxSize()) { innerPadding ->
-//                    Column(
-//                        modifier = Modifier
-//                            .padding(innerPadding),
-//                        verticalArrangement = Arrangement.spacedBy(16.dp),
-//                    ) {
-//
-//
-//                    }
-//
-//                }
-//            }
+
 
             WeatherApp()
         }

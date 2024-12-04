@@ -11,14 +11,14 @@ data class WeatherHourlyData(
     val time: String,         // Time of the hour (e.g., 10:00, 11:00, etc.)
     val temperature_f: Double, // Temperature in Celsius
     val temperature_c: Double, // Temperature in Celsius
-    val humidity: Double,    // Humidity percentage
+    val humidity: Int,    // Humidity percentage
     val windSpeed: Double,   // Wind speed in km/h
     val weatherCondition: String // Weather condition (e.g., "Sunny", "Cloudy")
 ){
     // Convert WeatherData to WeatherEntity for database insertion
     companion object {
-        fun fromWeatherData(data: HourData, date: String, location: String): WeatherEntity {
-            return WeatherEntity(
+        fun fromWeatherData(data: HourData, date: String, location: String): WeatherHourlyData {
+            return WeatherHourlyData(
                 date = date,
                 location = location,
                 temperature_f = data.temp_f,
@@ -26,6 +26,7 @@ data class WeatherHourlyData(
                 humidity = data.humidity,
                 windSpeed = data.wind_kph,
                 weatherCondition = data.condition.text,
+                time = data.time
             )
         }
 

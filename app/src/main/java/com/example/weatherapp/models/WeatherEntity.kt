@@ -28,17 +28,7 @@ data class WeatherEntity(
             )
         }
 
-        fun fromWeatherHourData(data: HourData, date: String, location: String): WeatherEntity {
-            return WeatherEntity(
-                date = date,
-                location = location,
-                temperature_f = data.temp_f,
-                temperature_c = data.temp_c,
-                humidity = data.humidity,
-                windSpeed = data.wind_kph,
-                weatherCondition = data.condition.text,
-            )
-        }
+
         fun fromWeatherCurrentData(data: Current, date: String, location: String): WeatherEntity {
             return WeatherEntity(
                 date = date,

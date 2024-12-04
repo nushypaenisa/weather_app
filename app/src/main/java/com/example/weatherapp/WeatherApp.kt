@@ -26,28 +26,8 @@ fun WeatherApp() {
         composable("details/{date}") { backStackEntry ->
             val date = backStackEntry.arguments?.getString("date") ?: "Unknown Date"
             val detailViewModel: DetailsViewModel = hiltViewModel()
-            DetailsScreen(navController,  detailViewModel,date)
+
+            DetailsScreen(navController,  detailViewModel, date)
         }
     }
 }
-//@Composable
-//fun WeatherApp() {
-//    val navController = rememberNavController()
-//
-//    NavHost(navController = navController, startDestination = "home") {
-//        composable("home") {
-//            val homeViewModel: WeatherViewModel = viewModel()
-//
-//            HomeScreen(
-//                navController,
-//                viewModel = homeViewModel
-//            )
-//
-//        }
-//        composable("details/{date}") { backStackEntry ->
-//            val date = backStackEntry.arguments?.getString("date") ?: "Unknown Date"
-//            val detailsViewModel: DetailsViewModel = viewModel()
-//            DetailsScreen(navController, viewModel = detailsViewModel, date)
-//        }
-//    }
-//}

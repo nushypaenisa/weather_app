@@ -2,6 +2,7 @@ package com.example.weatherapp.ui.pages
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentWidth
@@ -35,25 +36,27 @@ import com.example.weatherapp.viewModel.WeatherViewModel
 fun DetailsScreen(navController: NavController, viewModel: DetailsViewModel = hiltViewModel(), date: String) {
     val weather = viewModel.hourlyWeatherData.value
 
-
     LaunchedEffect(Unit) {
-        viewModel.getHourlyWeatherData("2024/11/26","Nairobi", "890ceead01424b0398894102240212")
+
+        viewModel.getHourlyWeatherData(date,"Nairobi", "890ceead01424b0398894102240212")
 
     }
 
     Column(modifier = Modifier.fillMaxSize().padding(16.dp)) {
+
+
         Text("Details for $date", style = MaterialTheme.typography.titleLarge)
 
-        // Fetch weather for the selected date
 
-
-//        // Display weather details
-//        weather?.let { data ->
-//            Text("Temperature: ${data.temperatureC}°C")
-//            Text("Condition: ${data.condition}")
-//        } ?: Text("Loading weather details...")
         weather?.let {
-            LazyColumn {
+            LazyColumn(
+                modifier = Modifier.fillMaxSize(),
+                contentPadding = PaddingValues(
+                    top = 16.dp,
+                    bottom = 16.dp,
+                ),
+            ) {
+
 
                 items(it) { hour ->
                     WeatherDetailCard(hour)
