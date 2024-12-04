@@ -26,42 +26,38 @@ import dagger.hilt.android.AndroidEntryPoint
 //import androidx.hilt.navigation.compose.hiltViewModel
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
-    private val viewModel: WeatherViewModel by viewModels()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            ///val viewModel = hiltViewModel<WeatherViewModel>()
-            WeatherAppTheme {
-                Scaffold(
-                    topBar = {
-                        TopAppBar(
-                            contentColor = MaterialTheme.colorScheme.primaryContainer,
-                            backgroundColor = MaterialTheme.colorScheme.primary,
+//            WeatherAppTheme {
+//                Scaffold(
+//                    topBar = {
+//                        TopAppBar(
+//                            contentColor = MaterialTheme.colorScheme.primaryContainer,
+//                            backgroundColor = MaterialTheme.colorScheme.primary,
+//
+//                            title = {
+//                                Text("Top app bar")
+//                            }
+//                        )
+//                    },
+//                    modifier = Modifier.fillMaxSize()) { innerPadding ->
+//                    Column(
+//                        modifier = Modifier
+//                            .padding(innerPadding),
+//                        verticalArrangement = Arrangement.spacedBy(16.dp),
+//                    ) {
+//
+//
+//                    }
+//
+//                }
+//            }
 
-                            title = {
-                                Text("Top app bar")
-                            }
-                        )
-                    },
-                    modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Column(
-                        modifier = Modifier
-                            .padding(innerPadding),
-                        verticalArrangement = Arrangement.spacedBy(16.dp),
-                    ) {
-                        HomeScreen(
-
-
-                            viewModel = viewModel,
-                            //onDateSelected = TODO()
-                            // onDateSelected = ""
-                        )
-                    }
-
-                }
-            }
+            WeatherApp()
         }
     }
 }

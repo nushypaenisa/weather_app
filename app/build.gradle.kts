@@ -97,6 +97,8 @@ dependencies {
     ksp("androidx.room:room-compiler:$room_version")
     annotationProcessor("androidx.room:room-compiler:$room_version")
     implementation("androidx.room:room-ktx:$room_version")
+    implementation ("androidx.hilt:hilt-navigation-compose:1.0.0")
+    implementation ("androidx.navigation:navigation-compose:2.5.3")
 
 // Encryption
 //    implementation ("androidx.security:security-crypto:1.1.0-alpha05")
