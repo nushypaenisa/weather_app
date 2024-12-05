@@ -97,6 +97,12 @@ dependencies {
     ksp("androidx.room:room-compiler:$room_version")
     annotationProcessor("androidx.room:room-compiler:$room_version")
     implementation("androidx.room:room-ktx:$room_version")
+    // Coroutine support for Room
+    implementation("androidx.room:room-ktx:2.5.2")
+
+    // SQLCipher for encrypted Room database
+    implementation("net.zetetic:android-database-sqlcipher:4.5.4")
+
     implementation ("androidx.hilt:hilt-navigation-compose:1.0.0")
     implementation ("androidx.navigation:navigation-compose:2.5.3")
 
